@@ -60,9 +60,8 @@ CLOUDINARY_API_SECRET=your_cloudinary_api_secret
 Frontend (frontend/.env.example)
 env
 
-VITE_API_URL_USER=http://localhost:8080/api/users
-VITE_API_URL_TEXT=http://localhost:8080/api/text
-VITE_API_URL_LESSON=http://localhost:8080/api/lessons
+VITE_API_BASE_URL=http://localhost:8080
+
 Tạo file .env từ .env.example
 bash
 

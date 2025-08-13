@@ -1,4 +1,4 @@
-export const API_URL = import.meta.env.VITE_API_URL_USER;
+export const API_URL = `${import.meta.env.VITE_API_BASE_URL}/api/users`;
 
 // register
 export async function register(data: {

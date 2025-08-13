@@ -2,7 +2,7 @@ import axios from "axios";
 import type { AxiosRequestConfig } from "axios";
 import type { Lesson } from "../types/lesson";
 
-const API_URL = import.meta.env.VITE_API_URL_LESSON;
+export const API_URL = `${import.meta.env.VITE_API_BASE_URL}/api/lessons`;
 
 export const getAuthHeader = (): AxiosRequestConfig => ({
   headers: {
