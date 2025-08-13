@@ -1,10 +1,11 @@
-import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout as logoutAction } from "../redux/slices/authSlice";
 
 const Navbar = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const accessToken = useSelector((state: any) => state.auth.accessToken);
   const user = useSelector((state: any) => state.auth.user);
 
@@ -33,6 +34,15 @@ const Navbar = () => {
     closeDropdown();
   };
 
+  // Hàm bảo vệ route
+  const handleProtectedClick = (path: string) => {
+    if (!accessToken) {
+      navigate("/login");
+    } else {
+      navigate(path);
+    }
+  };
+
   return (
     <nav className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 px-6 text-lg">
       <div className="container mx-auto flex justify-between items-center">
@@ -58,22 +68,20 @@ const Navbar = () => {
             >
               About
             </Link>
-            {accessToken && (
-              <Link
-                to="/write"
-                className="text-white hover:text-blue-200 transition duration-300"
-              >
-                Write
-              </Link>
-            )}
-            {accessToken && (
-              <Link
-                to="/lessons"
-                className="text-white hover:text-blue-200 transition duration-300"
-              >
-                Lesson
-              </Link>
-            )}
+
+            {/* Luôn hiển thị nhưng bảo vệ khi click */}
+            <Link
+              to="/write"
+              className="text-white hover:text-blue-200 transition duration-300"
+            >
+              Write
+            </Link>
+            <button
+              onClick={() => handleProtectedClick("/lessons")}
+              className="text-white hover:text-blue-200 transition duration-300"
+            >
+              Lesson
+            </button>
           </div>
         </div>
 
