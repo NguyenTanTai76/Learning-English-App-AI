@@ -39,7 +39,7 @@ yaml
 ### 1️⃣ Clone dự án
 
 ```bash
-git clone https://github.com/NguyenTanTai76/english-learning-ai-app.git
+git clone https://github.com/NguyenTanTai76/Learning-English-App-AI.git
 
 2️⃣ Cài dependencies
 Backend
