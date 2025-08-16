@@ -1,17 +1,18 @@
 # Logs
 logs
-*.logs
+*.log
 
-# Node Modules
+# Dependency directories
 frontend/node_modules
 backend/node_modules
 
-#Environment variables
-frontend/.env
-backend/.env
+# Environment variables (tất cả file .env*)
+frontend/.env*
+backend/.env*
 
-# Bỏ các file build
-backend/dist/
-frontend/build/
+# Build output
+frontend/dist
+backend/dist
 
+# Misc
 .DS_Store
